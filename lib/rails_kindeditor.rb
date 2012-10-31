@@ -1,6 +1,7 @@
 require 'rails_kindeditor/engine'
 require 'rails_kindeditor/helper'
 require 'carrierwave'
+require 'carrierwave-upyun'
 require 'mini_magick'
 
 module RailsKindeditor
