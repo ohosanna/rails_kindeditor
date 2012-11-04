@@ -27,16 +27,17 @@ module RailsKindeditor
     end
 
     def get_options(options)
-     # options.delete(:uploadJson)
-     # options.delete(:fileManagerJson)
+      #options.delete(:uploadJson)
+      options.delete(:fileManagerJson)
       options.reverse_merge!(:width => '100%')
       options.reverse_merge!(:height => 300)
       options.reverse_merge!(:allowFileManager => true)
       options.reverse_merge!(:uploadJson => '/kindeditor/upload')
-      options.reverse_merge!(:fileManagerJson => '/kindeditor/filemanager')
+      #options.merge!(:uploadJson => '/kindeditor/upload')
+      options.merge!(:fileManagerJson => '/kindeditor/filemanager')
       if options[:simple_mode] == true
         options.delete(:simple_mode)
-        options.merge!(:items => %w{fontname fontsize | forecolor hilitecolor bold italic underline removeformat | justifyleft justifycenter justifyright insertorderedlist insertunorderedlist | emoticons image multiimage link})
+        options.merge!(:items => %w{fontname fontsize | forecolor hilitecolor bold italic underline removeformat | justifyleft justifycenter justifyright insertorderedlist insertunorderedlist | emoticons image link})
       end
       options
     end    
