@@ -37,7 +37,7 @@ module RailsKindeditor
       options.merge!(:fileManagerJson => '/kindeditor/filemanager')
       if options[:simple_mode] == true
         options.delete(:simple_mode)
-        options.merge!(:items => %w{fontname fontsize | forecolor hilitecolor bold italic underline removeformat | justifyleft justifycenter justifyright insertorderedlist insertunorderedlist | emoticons image link})
+        options.merge!(:items => %w{fontname fontsize | forecolor hilitecolor bold italic underline removeformat | justifyleft justifycenter justifyright insertorderedlist insertunorderedlist | emoticons image multiimage link})
       end
       options
     end    
