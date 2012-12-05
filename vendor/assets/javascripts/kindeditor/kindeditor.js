@@ -245,6 +245,7 @@ K.options = {
 	useContextmenu : true,
 	fullscreenShortcut : false,
 	bodyClass : 'ke-content',
+  imgFieldId : '',
 	indentChar : '\t',
 	cssPath : '',
 	cssData : '',
@@ -3183,6 +3184,15 @@ _extend(KCmd, {
 		html += '/>';
 		return this.inserthtml(html);
 	},
+  // 把图片id写入到指定的输入框中
+  appendimgid : function(name, id) {
+    var imgid_field = document.getElementById(name);
+    if (imgid_field.value === '') {
+      imgid_field.value = id;
+    } else {
+      imgid_field.value += ',' + id;
+    }
+  },
 	createlink : function(url, type) {
 		var self = this, doc = self.doc, range = self.range;
 		self.select();

@@ -31,6 +31,7 @@ module RailsKindeditor
       options.delete(:fileManagerJson)
       options.reverse_merge!(:width => '100%')
       options.reverse_merge!(:height => 300)
+      options.reverse_merge!(:imgFieldId=> '')
       options.reverse_merge!(:allowFileManager => true)
       options.reverse_merge!(:uploadJson => '/kindeditor/upload')
       #options.merge!(:uploadJson => '/kindeditor/upload')

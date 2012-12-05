@@ -114,7 +114,9 @@ K.extend(KSWFUpload, {
 					return;
 				}
 				file.url = data.url;
-				K('.ke-img', itemDiv).attr('src', file.url).attr('data-status', file.filestatus).data('data', data);
+        //接收图片id
+        file.id = data.img_id;
+				K('.ke-img', itemDiv).attr('src', file.url).attr('data-status', file.filestatus).attr('data-id', file.id).data('data', data);
 				K('.ke-status > div', itemDiv).hide();
 			}
 		};
@@ -129,6 +131,7 @@ K.extend(KSWFUpload, {
 		K('.ke-img', self.bodyDiv).each(function() {
 			var img = K(this);
 			var status = img.attr('data-status');
+      var img_id = img.attr('data-id');
 			if (status == SWFUpload.FILE_STATUS.COMPLETE) {
 				list.push(img.data('data'));
 			}
@@ -280,6 +283,7 @@ KindEditor.plugin('multiimage', function(K) {
 						self.afterUpload.call(self, data.url, data, 'multiimage');
 					}
 					self.exec('insertimage', data.url, data.title, data.width, data.height, data.border, data.align);
+					self.exec('appendimgid', self.imgFieldId, data.img_id);
 				});
 				// Bugfix: [Firefox] 上传图片后，总是出现正在加载的样式，需要延迟执行hideDialog
 				setTimeout(function() {
